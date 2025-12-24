@@ -8,6 +8,11 @@ def working():
     print(f"This is a added thread, ID is {threading.current_thread()}")
 
 
+class Worker(threading.Thread):
+    def run(self):
+        working()
+
+
 def main():
     # added_thread = threading.Thread(target=working, daemon=True)
     added_thread = threading.Thread(target=working)
@@ -19,6 +24,9 @@ def main():
     print(threading.enumerate())
 
     print(threading.current_thread())
+
+    # worker = Worker()
+    # worker.start()
 
 
 if __name__ == "__main__":
