@@ -1,13 +1,15 @@
 import threading
 from queue import Queue
 
+
 def working(data, results_queue):
     print(f"worker id = {threading.current_thread()}")
 
     for i in range(len(data)):
-        data[i] = data[i]**2
+        data[i] = data[i] ** 2
 
     results_queue.put(data)
+
 
 def main():
     results_queue = Queue()
@@ -31,6 +33,7 @@ def main():
         results_list.append(results_queue.get())
 
     print(results_list)
+
 
 if __name__ == "__main__":
     main()

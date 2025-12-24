@@ -1,6 +1,7 @@
 import threading
-from queue import Queue
 import time
+from queue import Queue
+
 
 def working(data, results_queue):
     print(f"worker id = {threading.current_thread()}")
@@ -8,6 +9,7 @@ def working(data, results_queue):
     data_sum = sum(data)
 
     results_queue.put(data_sum)
+
 
 def multithreading(data):
     results_queue = Queue()
@@ -29,8 +31,10 @@ def multithreading(data):
 
     print(data_sum)
 
+
 def normal(data):
     print(sum(data))
+
 
 if __name__ == "__main__":
     data = list(range(1000000))

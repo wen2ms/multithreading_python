@@ -1,6 +1,7 @@
 import threading
 import time
 
+
 def working_1():
     global shared_data, lock
 
@@ -15,6 +16,7 @@ def working_1():
 
         lock.release()
 
+
 def working_2():
     global shared_data, lock
 
@@ -28,6 +30,7 @@ def working_2():
         time.sleep(0.1)
 
         lock.release()
+
 
 if __name__ == "__main__":
     shared_data = 0
